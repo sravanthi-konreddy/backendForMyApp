@@ -10,6 +10,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import springbootdemo.dao.UserRepository;
+import springbootdemo.model.User;
 import springbootdemo.model.UserSpringBootDemo;
 
 @Service
@@ -22,14 +23,14 @@ public class MyUserDetailsService implements UserDetailsService {
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		// TODO Auto-generated method stub
 		System.out.println("User name::::"+username);
-		List<UserSpringBootDemo>user=userRepository.findByUsername(username);
+		List<User>user=userRepository.findByUsername(username);
 		System.out.println("size:::"+user.size());
 		String roles=null;
 		if(user.size()>0)
 		{
 			
 			//user.get(0).setRoles("");
-			for(UserSpringBootDemo i:user)
+			for(User i:user)
 			{
 				System.out.println(i.getRoles());
 				if(roles!=null)
@@ -41,7 +42,7 @@ public class MyUserDetailsService implements UserDetailsService {
 		}
 		if(user.size()>0)
 		{
-		UserSpringBootDemo user1=user.get(0);
+		User user1=user.get(0);
 		user1.setRoles(roles);
 		System.out.println("Roles for user:::"+user1.getRoles());
 		return (new MyUserDetails(user1));

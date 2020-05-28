@@ -42,8 +42,8 @@ public class RegisterUserDaoImpl implements RegisterUserDao {
 		/*jdbcTemplate.update("INSERT INTO user_spring_boot_demo(is_active,password,roles,username)"
 				+ "VALUES(?,?,'ROLE_ADMIN',?)",true,user.getUsername(),user.getPassword());*/
 		
-		 return jdbcTemplate.update("INSERT INTO USER(username,password,cpassword,name) VALUES(?,?,?,?) ",
-				user.getUsername(),user.getPassword(),user.getPassword(),user.getName() );
+		 return jdbcTemplate.update("INSERT INTO USER(username,password,cpassword,name,is_active,roles) VALUES(?,?,?,?,?,?) ",
+				user.getUsername(),user.getPassword(),user.getPassword(),user.getName() ,user.isActive(),user.getRoles());
 			
 		
 	}

@@ -5,11 +5,12 @@ import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import springbootdemo.model.User;
 import springbootdemo.model.UserSpringBootDemo;
 
-public interface UserRepository extends JpaRepository<UserSpringBootDemo,Integer> {
+public interface UserRepository extends JpaRepository<User,String> {
 	
-	List<UserSpringBootDemo> findByUsername(String username);
+	List<User> findByUsername(String username);
 	
 
 }

@@ -10,6 +10,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import springbootdemo.model.User;
 import springbootdemo.model.UserSpringBootDemo;
 
 public class MyUserDetails implements UserDetails {
@@ -19,7 +20,7 @@ public class MyUserDetails implements UserDetails {
 	private boolean isActive;
 	private List<GrantedAuthority> grantedAuthorities;
 
-	public MyUserDetails(UserSpringBootDemo user) {
+	public MyUserDetails(User user) {
 		this.userName=user.getUsername();
 		this.password=user.getPassword();
 		this.isActive=user.isActive();

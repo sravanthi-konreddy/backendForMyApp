@@ -57,12 +57,13 @@ public class HelloController {
 	public ResponseEntity<?>createAuthenticationToken(@RequestBody AuthenticationRequest authenticationRequest)throws Exception
 	{
 		try {
-			
+			System.out.println("*****in authenticate************");
 		
 		authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getUsername(), authenticationRequest.getPassword()));
-	
+		System.out.println("*************after authenticate***********************");
 		}
 		catch (BadCredentialsException e) {
+			System.out.println("***************IN EXCEPTION************");
 			throw new Exception("Incorrect username and password"+e);
 		}
 		System.out.println("BEFORE CALLING LOADBYUSERNAME");

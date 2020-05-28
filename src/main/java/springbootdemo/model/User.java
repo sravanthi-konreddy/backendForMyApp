@@ -1,5 +1,6 @@
 package springbootdemo.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -11,6 +12,8 @@ public class User {
 	private String name;
 	private String password;
 	private String cpassword;
+	private String roles = "ROLE_USER";
+	private boolean isActive=true;
 	public String getUsername() {
 		return username;
 	}
@@ -35,12 +38,18 @@ public class User {
 	public void setCpassword(String cpassword) {
 		this.cpassword = cpassword;
 	}
+	public String getRoles() {
+		return roles;
+	}
+	public void setRoles(String roles) {
+		this.roles = roles;
+	}
+	public boolean isActive() {
+		return isActive;
+	}
+	public void setActive(boolean isActive) {
+		this.isActive = isActive;
+	}
 	
 	
-	
-	
-	
-	
-	
-
 }
